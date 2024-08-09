@@ -23,6 +23,7 @@ module.exports = {
           2: "#e9f0f2",
           3: "#325a73",
           4: "#1c1c1c",
+          "b-homepage": "rgba(103, 103, 103, 0.331) ",
         },
       },
       marginTop: {

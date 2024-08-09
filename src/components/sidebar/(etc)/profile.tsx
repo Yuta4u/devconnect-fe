@@ -8,13 +8,12 @@ export function Profile({
   sidebarWidth: number
   data: any
 }) {
-  console.log(data, "ini data")
   const toggleHidden = sidebarWidth < 10 ? "hidden" : "flex"
   const toggleBtnCenter =
     sidebarWidth < 10 && " justify-center px-0 items-center"
   return (
     <>
-      {data.username ? (
+      {data?.username ? (
         <div className={`py-5 px-6 flex ${toggleBtnCenter}`}>
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />

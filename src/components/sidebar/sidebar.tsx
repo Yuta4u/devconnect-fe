@@ -21,8 +21,8 @@ export default function Sidebar({ sidebarWidth }: any) {
       <div>
         <Profile sidebarWidth={sidebarWidth} data={user} />
         <hr />
-        <SidebarContent sidebarWidth={sidebarWidth} />
-        <hr />
+        {/* <SidebarContent sidebarWidth={sidebarWidth} />
+        <hr /> */}
         <SidebarProfile sidebarWidth={sidebarWidth} />
         <hr />
         <Sidebarcontent2 sidebarWidth={sidebarWidth} />

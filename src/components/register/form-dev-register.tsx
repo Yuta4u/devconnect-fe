@@ -21,7 +21,8 @@ const formSchema = z.object({
   username: z
     .string()
     .min(1, { message: "username is required" })
-    .min(8, { message: "username length must be at least 8" }),
+    .min(8, { message: "username length must be at least 8" })
+    .max(16, { message: "username tidak boleh lebih dari 16 huruf/angka" }),
   email: z
     .string()
     .min(1, { message: "email is required" })
