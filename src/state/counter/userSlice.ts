@@ -20,6 +20,7 @@ export const userLogin: any = createAsyncThunk(
         return response
       } else if (response.status === 201) {
         const decodedToken = jwtDecode(response.token)
+        console.log(decodedToken, "ini decoded")
         return { status: 201, message: "Berhasil login", data: decodedToken }
       }
     } catch (error) {

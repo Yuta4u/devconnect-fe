@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input"
 import { RegisterRecruiter } from "@/api/recruiter-api"
 import { useToast } from "../ui/use-toast"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 const formSchema = z.object({
   companyName: z.string().min(1, {
@@ -40,6 +41,7 @@ const formSchema = z.object({
 
 export function FormRegisterRecruiter() {
   const { toast } = useToast()
+  const nav = useNavigate()
   const [emailValidation, setEmailValidation] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
@@ -54,16 +56,18 @@ export function FormRegisterRecruiter() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setLoading(true)
     const res = await RegisterRecruiter(values)
+    console.log(res, "ini res")
     if (res.status === 201) {
       setEmailValidation(null)
+      nav("/login")
       toast({
-        description: res.msg,
+        description: res.message,
       })
     } else {
       setEmailValidation(values.email)
       toast({
         variant: "destructive",
-        description: res.msg,
+        description: res.message,
       })
     }
     setLoading(false)

@@ -1,4 +1,4 @@
-import { API_URL } from "@/config"
+import { DEV_CONNECT_API_URL } from "@/config"
 import { TRecruiterRegister } from "@/types/apiType"
 
 export async function RegisterRecruiter(data: TRecruiterRegister) {
@@ -9,7 +9,7 @@ export async function RegisterRecruiter(data: TRecruiterRegister) {
   }
 
   try {
-    const response = await fetch(`${API_URL}api/recruiter/register`, {
+    const response = await fetch(`${DEV_CONNECT_API_URL}api/recruiter`, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -21,7 +21,6 @@ export async function RegisterRecruiter(data: TRecruiterRegister) {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`)
     }
-
     const res = await response.json()
     return res
   } catch (error) {
